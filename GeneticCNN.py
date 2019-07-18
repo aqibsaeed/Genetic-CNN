@@ -1,3 +1,4 @@
+# Improved MNIST Architecture based on Genetic CNN Notebook.
 import random
 import numpy as np
 
