@@ -58,7 +58,7 @@ def apply_convolution(x, kernel_height, kernel_width, in_channels, out_chanels, 
 
 def apply_pool(x, kernel_height, kernel_width, stride_size):
     return tf.nn.max_pool(x, ksize=[1, kernel_height, kernel_width, 1],
-                          strides=[1, 1, stride_size, 1], padding="SAME")
+                          strides=[1, stride_size, stride_size, 1], padding="SAME")
 
 
 def add_node(node_name, connector_node_name, h=5, w=5, ic=1, oc=1):
