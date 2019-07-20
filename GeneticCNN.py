@@ -27,7 +27,7 @@ BITS_INDICES, l_bpi = np.empty((0, 2), dtype=np.int32), 0  # to keep track of bi
 for nn in NUM_NODES:
     t = nn * (nn - 1)
     BITS_INDICES = np.vstack([BITS_INDICES, [l_bpi, l_bpi + int(0.5 * t)]])
-    l_bpi = int(0.5 * t)
+    l_bpi += int(0.5 * t)
     L += t
 L = int(0.5 * L)
 
