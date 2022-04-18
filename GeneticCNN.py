@@ -23,13 +23,14 @@ STAGES = np.array(["s1", "s2"])  # S
 NUM_NODES = np.array([3, 5])  # K
 
 L = 0  # genome length
-BITS_INDICES, l_bpi = np.empty((0, 2), dtype=np.int32), 0  # to keep track of bits for each stage S
-for nn in NUM_NODES:
-    t = nn * (nn - 1)
-    BITS_INDICES = np.vstack([BITS_INDICES, [l_bpi, l_bpi + int(0.5 * t)]])
-    l_bpi = int(0.5 * t)
-    L += t
-L = int(0.5 * L)
+BITS_INDICES = np.empty((0,2),dtype = np.int32)
+start = 0
+end = 0
+for x in NUM_NODES:
+    end = end + sum(range(x))
+    BITS_INDICES = np.vstack([BITS_INDICES,[start, end]])
+    start = end
+L = end
 
 TRAINING_EPOCHS = 20
 BATCH_SIZE = 20
